@@ -21,6 +21,10 @@
   font-size: 1.25rem;
 }
 
+.w-full {
+  width: 100%;
+}
+
 // End Util
 
 // App
@@ -59,3 +63,10 @@
 }
 
 // End Post
+
+// Skeleton
+.skeleton-squid {
+  width: 100%;
+  aspect-ratio: 1;
+}
+// End Skeleton

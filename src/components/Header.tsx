@@ -4,7 +4,7 @@ export default function Header() {
       <img
         src="/assets/logo.svg"
         alt="Squid"
-        className="img-fluid img-squid pb-4"
+        className="img-fluid img-squid py-4"
       />
     </>
   );
