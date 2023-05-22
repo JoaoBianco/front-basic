@@ -3,6 +3,11 @@ import { UseQueryResult, useQuery } from "react-query";
 import { SquidResponse } from "../types";
 import Header from "./components/Header";
 import Post from "./components/Post";
+import { motion } from "framer-motion";
+import {
+  fadeInParentVariant,
+  fadeInChildrenVariant,
+} from "./framer_motion/main";
 
 function App() {
   const URL =
@@ -21,11 +26,18 @@ function App() {
   return (
     <div className="bg-custom-squid container display-flex align-items-center flex-column py-7">
       <Header />
-      <div className="display-grid grid-container-squid">
+      <motion.div
+        variants={fadeInParentVariant}
+        animate="show"
+        initial="hidden"
+        className="display-grid grid-container-squid"
+      >
         {response.data?.map((e) => (
-          <Post key={e.uid} props={e} />
+          <motion.div variants={fadeInChildrenVariant} key={e.uid}>
+            <Post props={e} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
