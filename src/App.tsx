@@ -1,6 +1,8 @@
 import axios from "axios";
 import { UseQueryResult, useQuery } from "react-query";
 import { SquidResponse } from "../types";
+import Header from "./components/Header";
+import Post from "./components/Post";
 
 function App() {
   const URL =
@@ -8,7 +10,7 @@ function App() {
 
   const response: UseQueryResult<SquidResponse, Error> = useQuery(
     "squidPosts",
-    () => axios.get(URL).then((res) => res.data),
+    () => axios.get(URL).then((resp) => resp.data),
     { refetchOnWindowFocus: false }
   );
 
@@ -17,10 +19,13 @@ function App() {
   if (response.isError) return <div>Error: {response.error.message}</div>;
 
   return (
-    <div className="bg-custom-squid">
-      {response.data?.map((e) => (
-        <img src={e.imagens.resolucaoMedia.url} key={e.uid} alt="squid" />
-      ))}
+    <div className="bg-custom-squid container display-flex align-items-center flex-column py-7">
+      <Header />
+      <div className="display-grid grid-container-squid">
+        {response.data?.map((e) => (
+          <Post key={e.uid} props={e} />
+        ))}
+      </div>
     </div>
   );
 }
