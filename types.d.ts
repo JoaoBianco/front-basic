@@ -5,6 +5,9 @@ export type SquidResponse = {
   comentarios: number;
   criadoEm: string;
   legenda: string;
+  usuario: {
+    nome: string;
+  };
   imagens: {
     resolucaoPadrao: {
       url: string;
@@ -32,6 +35,9 @@ export type SquidProps = {
     comentarios: number;
     criadoEm: string;
     legenda: string;
+    usuario: {
+      nome: string;
+    };
     imagens: {
       resolucaoPadrao: {
         url: string;

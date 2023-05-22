@@ -1,10 +1,4 @@
-.bg-custom-squid {
-  background-image: url("../public/assets/background.svg");
-}
-
-.img-squid {
-  width: 32rem;
-}
+// Util
 
 .flex-column {
   flex-direction: column;
@@ -19,13 +13,48 @@
   gap: 1rem;
 }
 
-.object-fit-contain {
+.gap-300 {
+  gap: 0.75rem;
+}
+
+.fs-500 {
+  font-size: 1.25rem;
+}
+
+// End Util
+
+// App
+
+.bg-custom-squid {
+  background-image: url("../public/assets/background.svg");
+}
+// End App
+
+// Header
+
+.img-squid {
+  width: 32rem;
+}
+// End Header
+
+// Post
+
+.img-post_container-squid {
   display: flex;
   justify-content: center;
   align-items: center;
-  > img {
+  position: relative;
+  img {
     object-fit: cover !important;
     width: 100%;
     aspect-ratio: 1;
   }
 }
+
+.img-post_infos-squid {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(30 30 30 / 0.55);
+}
+
+// End Post
