@@ -9,7 +9,7 @@ export const fadeInParentVariant = {
 
 export const fadeInChildrenVariant = {
   show: (i: number) => {
-    const delay = i * 0.15;
+    const delay = i * 0.12;
     return {
       rotate: 0,
       scale: 1,

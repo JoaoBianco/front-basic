@@ -45,7 +45,6 @@ function App() {
       >
         <AnimatePresence>
           {response.isFetching && <SkeletonWrapper />}
-
           {response.data?.map((post, index) => (
             <motion.div
               custom={index}
