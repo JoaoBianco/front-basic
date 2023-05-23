@@ -10,8 +10,11 @@ import {
 } from "./framer_motion/main";
 import SkeletonWrapper from "./components/skeleton/SkeletonWrapper";
 import ErrorComponent from "./components/ErrorComponent";
+import { useState } from "react";
 
 function App() {
+  const [isFancierHover, setIsFancierHover] = useState(false);
+
   const URL =
     "https://us-central1-squid-apis.cloudfunctions.net/test-front-basic";
 
@@ -24,7 +27,10 @@ function App() {
 
   return (
     <div className="bg-custom-squid container display-flex align-items-center flex-column py-7">
-      <Header />
+      <Header
+        isFancierHover={isFancierHover}
+        setIsFancierHover={setIsFancierHover}
+      />
       {response.isError && (
         <ErrorComponent
           message={response.error.message}
@@ -46,7 +52,7 @@ function App() {
               variants={fadeInChildrenVariant}
               key={post.uid}
             >
-              <Post props={post} />
+              <Post props={post} isFancierHover={isFancierHover} />
             </motion.div>
           ))}
         </AnimatePresence>

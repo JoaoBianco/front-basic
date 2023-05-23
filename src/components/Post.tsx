@@ -9,13 +9,15 @@ import {
   fadeInParentVariant,
 } from "../framer_motion/card";
 
-export default function Post({ props }: SquidProps) {
+type Props = SquidProps & { isFancierHover: boolean };
+
+export default function Post({ props, isFancierHover }: Props) {
   const [isShowing, setIsShowing] = useState(false);
 
   return (
     <div
       key={props.uid}
-      className="img-post_container-squid"
+      className={`img-post_container-squid ${isFancierHover ? "fancy" : ""}`}
       onMouseEnter={() => setIsShowing(true)}
       onMouseLeave={() => setIsShowing(false)}
       onClick={() => window.open(props.link, "_blank")}
