@@ -7,6 +7,7 @@ export default function Skeleton() {
       variants={skeletonVariant}
       initial="hidden"
       animate="show"
+      exit="exit"
       className="skeleton-squid"
     ></motion.div>
   );

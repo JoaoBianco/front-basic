@@ -8,4 +8,8 @@ export const skeletonVariant: Variants = {
   hidden: {
     backgroundColor: "#F6B7D1",
   },
+  exit: {
+    scale: 0,
+    transition: { duration: 0.15 },
+  },
 };

@@ -31,22 +31,26 @@ function App() {
           refetch={() => response.refetch()}
         />
       )}
-      <AnimatePresence>
-        <motion.div
-          variants={fadeInParentVariant}
-          animate="show"
-          initial="hidden"
-          className="display-grid grid-container-squid w-full"
-        >
+      <motion.div
+        variants={fadeInParentVariant}
+        animate="show"
+        initial="hidden"
+        className="display-grid grid-container-squid w-full"
+      >
+        <AnimatePresence>
           {response.isFetching && <SkeletonWrapper />}
 
-          {response.data?.map((post) => (
-            <motion.div variants={fadeInChildrenVariant} key={post.uid}>
+          {response.data?.map((post, index) => (
+            <motion.div
+              custom={index}
+              variants={fadeInChildrenVariant}
+              key={post.uid}
+            >
               <Post props={post} />
             </motion.div>
           ))}
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }

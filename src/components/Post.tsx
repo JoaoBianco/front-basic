@@ -18,6 +18,7 @@ export default function Post({ props }: SquidProps) {
       className="img-post_container-squid"
       onMouseEnter={() => setIsShowing(true)}
       onMouseLeave={() => setIsShowing(false)}
+      onClick={() => window.open(props.link, "_blank")}
     >
       <img
         className="img-fluid object-fit-contain"

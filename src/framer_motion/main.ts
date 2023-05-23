@@ -1,18 +1,23 @@
 export const fadeInParentVariant = {
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.25,
-    },
   },
   hidden: {
     opacity: 1,
   },
 };
+
 export const fadeInChildrenVariant = {
-  show: {
-    rotate: 0,
-    scale: 1,
+  show: (i: number) => {
+    const delay = i * 0.15;
+    return {
+      rotate: 0,
+      scale: 1,
+      transition: {
+        delay: delay,
+        duration: 0.15,
+      },
+    };
   },
   hidden: {
     rotate: -25,
